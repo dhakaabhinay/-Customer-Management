@@ -66,7 +66,12 @@ function App() {
     <div className="App">
       <h1>Customer Management System</h1>
 
-      <button onClick={() => setShowModal(true)}>Add Customer</button>
+      <button
+        style={{ backgroundColor: 'green' }}
+        onClick={() => setShowModal(true)}
+      >
+        Add Customer
+      </button>
 
       {showModal && (
         <div className="modal">
