@@ -56,6 +56,12 @@ function App() {
     }
   }
 
+  const handledelete = (id) => {
+    const updateuser = [...users]
+    updateuser.splice(id, 1)
+    setUsers(updateuser)
+  }
+
   return (
     <div className="App">
       <h1>Customer Management System</h1>
@@ -109,16 +115,25 @@ function App() {
             <th>Last Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users.map((user, id) => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
+              <td>
+                <button
+                  style={{ backgroundColor: 'red' }}
+                  onClick={() => handledelete(id)}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
